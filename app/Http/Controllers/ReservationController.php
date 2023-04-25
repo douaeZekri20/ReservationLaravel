@@ -12,6 +12,9 @@ public function sorte(Request $request){
         'destination'=>'required',
         'dateDepart'=>'required',
         'dateRetour'=>'required',
+        'classe'=>'required',
+        'passagers'=>'required',
+        'codereduction'=>'required'
     ]);
     $reservation=new Reservation;
     $reservation->origine=$request->input('origine');
