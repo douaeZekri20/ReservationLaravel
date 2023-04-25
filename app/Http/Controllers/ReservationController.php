@@ -14,7 +14,8 @@ public function sorte(Request $request){
         'dateRetour'=>'required',
         'classe'=>'required',
         'passagers'=>'required',
-        'codereduction'=>'required'
+        'codereduction'=>'required',
+        'modePaiment'=>'required'
     ]);
     $reservation=new Reservation;
     $reservation->origine=$request->input('origine');
@@ -24,6 +25,7 @@ public function sorte(Request $request){
     $reservation->classe=$request->input('classe');
     $reservation->passagers=$request->input('passagers');
     $reservation->codereduction=$request->input('codereduction');
+    $reservation->modePaiment=$request->input('modePaiment);
 
     $reservation->save();
     return response()->json(['message'=>'reservation ajoute avec succes !','reservation'=>$reservation]);
