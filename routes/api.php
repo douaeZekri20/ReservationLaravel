@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post("/signup",[App\Http\Controllers\HomeController::class,'signUp']);
 Route::post("/signin",[App\Http\Controllers\HomeController::class,'signIn']);
+Route:post("/reservation",[App\Http\Controllers\ReservationController::class,'sorte']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
