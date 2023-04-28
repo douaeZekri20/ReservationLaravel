@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Reservation;
 
 class ReservationController extends Controller
 {
 public function sorte(Request $request){
-    $request->validate([
-        'origine'=>'required',
-        'destination'=>'required',
-        'dateDepart'=>'required',
-        'dateRetour'=>'required',
-    ]);
     $reservation=new Reservation;
     $reservation->origine=$request->input('origine');
     $reservation->destination=$request->input('destination');
@@ -21,6 +16,7 @@ public function sorte(Request $request){
     $reservation->classe=$request->input('classe');
     $reservation->passagers=$request->input('passagers');
     $reservation->codereduction=$request->input('codereduction');
+    $reservation->modePaiment=$request->input('modePaiment');
 
     $reservation->save();
     return response()->json(['message'=>'reservation ajoute avec succes !','reservation'=>$reservation]);
